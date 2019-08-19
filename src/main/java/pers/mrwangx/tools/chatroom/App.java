@@ -16,7 +16,7 @@ public class App {
 			System.out.println("请输入正确格式: server/client host port");
 		} else if (args[0].equals("server")) {
 			AppServer.run(args[1], Integer.parseInt(args[2]));
-		} else if (args[1].equals("client")) {
+		} else if (args[0].equals("client")) {
 			AppClient.run(args[1], Integer.parseInt(args[2]));
 		}
 

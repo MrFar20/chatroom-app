@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>pers.mrwangx.tools</groupId>
-    <artifactId>chatroom</artifactId>
+    <artifactId>chatroom-app</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
