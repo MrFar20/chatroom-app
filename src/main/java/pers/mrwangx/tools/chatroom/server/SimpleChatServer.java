@@ -23,12 +23,12 @@ import pers.mrwangx.tools.chatroom.framework.server.session.SessionManager;
 
 public class SimpleChatServer extends ChatServer {
 
-	public SimpleChatServer(String host, int port, int timeout, int initSessionId, SessionManager sessionManager, Handler handler, int MSG_SIZE) {
-		super(host, port, timeout, initSessionId, sessionManager, handler, MSG_SIZE);
+	public SimpleChatServer(String host, int port, int timeout, int initSessionId, long heartBeatInterval, long heartBeatCheckInterval, SessionManager sessionManager, Handler handler, int MSG_SIZE) {
+		super(host, port, timeout, initSessionId, heartBeatInterval, heartBeatCheckInterval, sessionManager, handler, MSG_SIZE);
 	}
 
-	public SimpleChatServer(String host, int port, int timeout, int initSessionId, SessionManager sessionManager, Handler handler, int MSG_SIZE, ExecutorService executorService) {
-		super(host, port, timeout, initSessionId, sessionManager, handler, MSG_SIZE, executorService);
+	public SimpleChatServer(String host, int port, int timeout, int initSessionId, long heartBeatInterval, long heartBeatCheckInterval, SessionManager sessionManager, Handler handler, int MSG_SIZE, ExecutorService executorService) {
+		super(host, port, timeout, initSessionId, heartBeatInterval, heartBeatCheckInterval, sessionManager, handler, MSG_SIZE, executorService);
 	}
 
 	@Override

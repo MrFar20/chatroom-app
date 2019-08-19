@@ -23,7 +23,7 @@ public class AppServer {
 		SessionManager<Session> sessionManager = new SimpleSessionManager();
 		ServerHanler serverHanler = new ServerHanler();
 		serverHanler.setSessionManager(sessionManager);
-		SimpleChatServer chatServer = new SimpleChatServer(host, port, 1000, 0, sessionManager, serverHanler, 2048);
+		SimpleChatServer chatServer = new SimpleChatServer(host, port, 1000,  0, App.heartBeatInterval, App.heartBeatCheckInterval, sessionManager, serverHanler, 2048);
 		chatServer.start();
 	}
 

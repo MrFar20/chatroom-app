@@ -19,7 +19,15 @@ import static pers.mrwangx.tools.chatroom.framework.util.StringUtil.str;
  * @author: 王昊鑫
  * @create: 2019年08月15 9:29
  **/
-public class SimpleChatClient extends ChatClient<Message> {
+public class SimpleChatClient extends ChatClient {
+
+	public SimpleChatClient(long heartBeatInterval) {
+		super(heartBeatInterval);
+	}
+
+	public SimpleChatClient(long heartBeatInterval, int MSG_SIZE) {
+		super(heartBeatInterval, MSG_SIZE);
+	}
 
 	@Override
 	public Message parseToMessage(byte[] data) {
