@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="553.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
-    <children>
-        <HBox layoutX="-1.0" layoutY="-3.0" prefHeight="560.0" prefWidth="910.0">
-            <children>
-                <VBox prefHeight="529.0" prefWidth="498.0">
-                    <children>
-                        <TextArea fx:id="input" prefHeight="574.0" prefWidth="497.0" wrapText="true" />
-                    </children>
-                </VBox>
-                <VBox prefHeight="560.0" prefWidth="415.0">
-                    <children>
-                        <TextArea fx:id="show" prefHeight="583.0" prefWidth="414.0" wrapText="true" />
-                    </children>
-                </VBox>
-            </children>
-        </HBox>
-    </children>
+<AnchorPane prefHeight="728.0" prefWidth="566.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="728.0" prefWidth="566.0">
+         <children>
+            <TextArea fx:id="show" prefHeight="689.0" prefWidth="566.0" />
+            <TextField fx:id="input" prefHeight="41.0" prefWidth="566.0" />
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>
