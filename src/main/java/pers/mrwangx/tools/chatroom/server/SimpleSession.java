@@ -4,8 +4,10 @@ import java.nio.channels.SelectionKey;
 import java.nio.channels.SocketChannel;
 
 import com.alibaba.fastjson.JSON;
-
 import pers.mrwangx.tools.chatroom.framework.protocol.Message;
+
+import static pers.mrwangx.tools.chatroom.framework.protocol.Message.*;
+
 import pers.mrwangx.tools.chatroom.framework.server.session.Session;
 
 /**
@@ -15,23 +17,23 @@ import pers.mrwangx.tools.chatroom.framework.server.session.Session;
  **/
 public class SimpleSession extends Session<Message> {
 
-	public SimpleSession(SocketChannel cChannel, SelectionKey sKey, int sessionId) {
-		super(cChannel, sKey, sessionId);
-	}
+    public SimpleSession(SocketChannel cChannel, SelectionKey sKey, int sessionId) {
+        super(cChannel, sKey, sessionId);
+    }
 
-	@Override
-	public byte[] parseToByteData(Message message) {
-		return JSON.toJSONString(message).getBytes();
-	}
+    @Override
+    public byte[] parseToByteData(Message message) {
+        return JSON.toJSONString(message).getBytes();
+    }
 
-	@Override
-	public Message registeBackMsg() {
-		return Message.newBuilder()
-						.fromId(-1)
-						.toId(-1)
-						.type(Message.ALLOCATE_ID)
-						.time(System.currentTimeMillis())
-						.content(getSessionId() + "")
-						.build();
-	}
+    @Override
+    public Message registeBackMsg() {
+        return Message.newBuilder()
+                .fromId(FROM_SERVER)
+                .toId(getSessionId())
+                .type(Message.ALLOCATE_ID)
+                .time(System.currentTimeMillis())
+                .content(getSessionId() + "")
+                .build();
+    }
 }

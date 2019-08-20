@@ -1,19 +1,15 @@
 package pers.mrwangx.tools.chatroom.server;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.nio.channels.SocketChannel;
-import java.util.Base64;
-import java.util.concurrent.ExecutorService;
-
 import com.alibaba.fastjson.JSON;
-
-import pers.mrwangx.tools.chatroom.framework.client.ChatClientLogger;
 import pers.mrwangx.tools.chatroom.framework.protocol.Message;
 import pers.mrwangx.tools.chatroom.framework.server.ChatServer;
 import pers.mrwangx.tools.chatroom.framework.server.handler.Handler;
 import pers.mrwangx.tools.chatroom.framework.server.session.Session;
 import pers.mrwangx.tools.chatroom.framework.server.session.SessionManager;
+
+import java.io.UnsupportedEncodingException;
+import java.nio.channels.SocketChannel;
+import java.util.concurrent.ExecutorService;
 
 /***
  * @author 王昊鑫

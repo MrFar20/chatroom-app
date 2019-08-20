@@ -49,15 +49,11 @@ public class ServerHanler implements Handler<Session<Message>, Message> {
 	}
 
 	public void message(Session session, Message message) {
-		if (message.getToId() == 0) { //广播消息
+		if (message.getToId() == TO_BROADCAST) { //广播消息
 			message.setFromId(session.getSessionId());
 			message.setName(session.getName());
-			sessionManager.getSessions().forEach(s -> {
-				if (s.getSessionId() != session.getSessionId()) {
-					s.write(message);
-				}
-			});
-		} else if (message.getToId() > 0) { //发送私信
+			sessionManager.getSessions().forEach(s -> s.write(message));
+		} else if (message.getToId() > TO_BROADCAST) { //发送私信
 			Session sessionTo = sessionManager.get(message.getToId());
 			message.setFromId(session.getSessionId());
 			message.setName(session.getName());
@@ -72,9 +68,10 @@ public class ServerHanler implements Handler<Session<Message>, Message> {
 			sessionManager.getSessions().forEach(s -> {
 				buffer.append(str("[ID:%d, 名字:%s]\n", s.getSessionId(), s.getName()));
 			});
+			buffer.deleteCharAt(buffer.length() - 1);
 			Message msg1 = Message.newBuilder()
 							.type(MESSAGE)
-							.fromId(-1)
+							.fromId(FROM_SERVER)
 							.name("server")
 							.toId(session.getSessionId())
 							.time(System.currentTimeMillis())
