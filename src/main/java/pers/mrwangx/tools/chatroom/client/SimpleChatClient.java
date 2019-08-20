@@ -21,6 +21,8 @@ import static pers.mrwangx.tools.chatroom.framework.util.StringUtil.str;
  **/
 public class SimpleChatClient extends ChatClient<Message> {
 
+	private Integer id;
+
 	public SimpleChatClient(long heartBeatInterval) {
 		super(heartBeatInterval);
 	}
@@ -48,7 +50,12 @@ public class SimpleChatClient extends ChatClient<Message> {
 
 	@Override
 	public void onReceiveMessage(Message msg) {
-		System.out.println(formatMsg(msg));
+		if (msg.getType() == Message.ALLOCATE_ID) {
+			this.id = Integer.parseInt(msg.getContent());
+		} else {
+			System.out.println(formatMsg(msg));
+			System.out.print("chatroom>");
+		}
 	}
 
 	@Override
@@ -101,5 +108,9 @@ public class SimpleChatClient extends ChatClient<Message> {
 						new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(msg.getTime())),
 						msg.getContent()
 		)).reset().toString();
+	}
+
+	public Integer getId() {
+		return id;
 	}
 }

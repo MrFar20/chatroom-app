@@ -1,5 +1,7 @@
 package pers.mrwangx.tools.chatroom;
 
+import pers.mrwangx.tools.chatroom.framework.protocol.Message;
+
 /**
  * @description:
  * @author: 王昊鑫
@@ -16,9 +18,19 @@ public class App {
 		} else if (args[0].equals("server")) {
 			AppServer.run(args[1], Integer.parseInt(args[2]));
 		} else if (args[0].equals("client")) {
-			AppClient.run(args[1], Integer.parseInt(args[2]));
+			new AppClient().run(args[1], Integer.parseInt(args[2]));
 		}
+	}
 
+	public static Message newMessage(int type, String name, String content, int fromId, int toId, long time) {
+		return Message.newBuilder()
+						.type(type)
+						.name(name)
+						.content(content)
+						.fromId(fromId)
+						.toId(toId)
+						.time(time)
+						.build();
 	}
 
 }
