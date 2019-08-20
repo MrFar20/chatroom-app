@@ -15,7 +15,7 @@ import static pers.mrwangx.tools.chatroom.framework.util.StringUtil.str;
  * @description
  * @date 2019年08月08日 14:25
  ***/
-public class ServerHanler implements Handler {
+public class ServerHanler implements Handler<Session<Message>, Message> {
 
 	public static final Logger log = Logger.getLogger("ChatServer");
 	private SessionManager<Session> sessionManager;

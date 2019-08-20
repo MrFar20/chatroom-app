@@ -19,7 +19,7 @@ import static pers.mrwangx.tools.chatroom.framework.util.StringUtil.str;
  * @author: 王昊鑫
  * @create: 2019年08月15 9:29
  **/
-public class SimpleChatClient extends ChatClient {
+public class SimpleChatClient extends ChatClient<Message> {
 
 	public SimpleChatClient(long heartBeatInterval) {
 		super(heartBeatInterval);
@@ -49,6 +49,11 @@ public class SimpleChatClient extends ChatClient {
 	@Override
 	public void onReceiveMessage(Message msg) {
 		System.out.println(formatMsg(msg));
+	}
+
+	@Override
+	public Message heartBeatMsg() {
+		return Message.newBuilder().type(Message.HEART_BEAT_PAC).build();
 	}
 
 	public Message messageFromInput(String input) {

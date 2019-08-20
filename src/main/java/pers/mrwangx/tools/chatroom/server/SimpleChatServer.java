@@ -21,7 +21,7 @@ import pers.mrwangx.tools.chatroom.framework.server.session.SessionManager;
  * @date 2019年08月07日 13:44
  ***/
 
-public class SimpleChatServer extends ChatServer {
+public class SimpleChatServer extends ChatServer<Session<Message>, Message> {
 
 	public SimpleChatServer(String host, int port, int timeout, int initSessionId, long heartBeatInterval, long heartBeatCheckInterval, SessionManager sessionManager, Handler handler, int MSG_SIZE) {
 		super(host, port, timeout, initSessionId, heartBeatInterval, heartBeatCheckInterval, sessionManager, handler, MSG_SIZE);
