@@ -19,7 +19,7 @@ public class AppClient {
 
 	public static void run(String host, int port) {
 		Scanner input = new Scanner(System.in);
-		SimpleChatClient client = new SimpleChatClient();
+		SimpleChatClient client = new SimpleChatClient(App.heartBeatInterval);
 		boolean success = client.connect(host, port);
 		if (success) {
 			System.out.print("请输入您聊天的名字:");

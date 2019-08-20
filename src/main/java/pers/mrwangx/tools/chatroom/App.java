@@ -7,6 +7,9 @@ package pers.mrwangx.tools.chatroom;
  **/
 public class App {
 
+	public static final long heartBeatInterval = 10000;
+	public static final long heartBeatCheckInterval = 60000;
+
 	public static void main(String[] args) {
 		if (args == null || args.length < 3) {
 			System.out.println("请输入正确格式: server/client host port");
