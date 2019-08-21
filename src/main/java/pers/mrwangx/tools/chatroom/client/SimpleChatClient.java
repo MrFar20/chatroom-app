@@ -24,7 +24,7 @@ public class SimpleChatClient extends ChatClient<Message> {
 	public static String reg;
 
 	static {
-		reg = String.format("^(%s [0-9]+::.+)|(%s .+)|(%s .+)|(%s .+ [0-9]+)|(%s)|(%s)$", SEND_MESSAGE, COMMAND, UP_NAME, CONNECT, STOP, RECONNECT);
+		reg = String.format("^(%s [0-9]+::.+)|(%s .+)|(%s .+)|(%s .+ [0-9]+)|(%s)|(%s)|(%s)$", SEND_MESSAGE, COMMAND, UP_NAME, CONNECT, STOP, RECONNECT, CLEAR);
 	}
 
 	private Integer id;
@@ -128,8 +128,9 @@ public class SimpleChatClient extends ChatClient<Message> {
 								.setValues(values)
 								.setMessage(message)
 								.setDescription(str("修改名字为[%s]", message.getContent()));
-			} else if (input.startsWith("help")) {
-				System.out.println("help .....");
+			} else if (input.startsWith(CLEAR)) {
+				clientOpt.setOptKeyword(CLEAR)
+								.setType(CLIENT_OPT_CLEAR);
 			}
 			return clientOpt;
 		}

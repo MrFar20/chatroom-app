@@ -15,6 +15,7 @@ public class ClientOpt {
 	public static final String CONNECT = "connect";
 	public static final String RECONNECT = "reconnect";
 	public static final String STOP = "stop";
+	public static final String CLEAR = "clear";
 
 
 	public static final int CLIENT_OPT_SEND_MESSAGE = 0;
@@ -23,6 +24,7 @@ public class ClientOpt {
 	public static final int CLIENT_OPT_CONNECT = 3;
 	public static final int CLIENT_OPT_STOP  = 4;
 	public static final int CLIENT_OPT_RECONNECT  = 5;
+	public static final int CLIENT_OPT_CLEAR = 6;
 
 	private int type;
 	private String description;

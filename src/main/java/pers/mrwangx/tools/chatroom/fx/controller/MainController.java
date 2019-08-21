@@ -108,6 +108,9 @@ public class MainController implements Initializable {
 							client.stop();
 						}
 						break;
+					case CLIENT_OPT_CLEAR:
+						feedbackBoard.clear();
+						break;
 					default:
 						if (client.isStoped()) {
 							println(feedbackBoard, "请先连接服务器");

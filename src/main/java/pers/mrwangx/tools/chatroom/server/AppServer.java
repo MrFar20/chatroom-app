@@ -15,7 +15,7 @@ import pers.mrwangx.tools.chatroom.server.SimpleChatServer;
 public class AppServer {
 
 	public static void main(String[] args) {
-		run("localhost", 8066);
+		run("0.0.0.0", 8066);
 	}
 
 

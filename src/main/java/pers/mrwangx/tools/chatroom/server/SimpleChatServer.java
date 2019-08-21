@@ -6,6 +6,7 @@ import pers.mrwangx.tools.chatroom.framework.server.ChatServer;
 import pers.mrwangx.tools.chatroom.framework.server.handler.Handler;
 import pers.mrwangx.tools.chatroom.framework.server.session.Session;
 import pers.mrwangx.tools.chatroom.framework.server.session.SessionManager;
+import pers.mrwangx.tools.chatroom.framework.util.StringUtil;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.channels.SocketChannel;
@@ -38,6 +39,19 @@ public class SimpleChatServer extends ChatServer<Session<Message>, Message> {
 			}
 		};
 		return strMsg == null ? null: JSON.parseObject(strMsg).toJavaObject(Message.class);
+	}
+
+	@Override
+	public void sessionCreated(Session<Message> session) {
+		broadCast(Message.
+						newBuilder()
+						.type(Message.MESSAGE)
+						.time(System.currentTimeMillis())
+						.toId(Message.TO_BROADCAST)
+						.fromId(Message.FROM_SERVER)
+						.content(StringUtil.str("[%s:%s]加入了聊天室", session.getSessionId(), session.getName()))
+						.build()
+		);
 	}
 
 	@Override

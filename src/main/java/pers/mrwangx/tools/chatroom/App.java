@@ -16,19 +16,20 @@ public class App {
 	public static final long heartBeatCheckInterval = 60000;
 
 	public static void main(String[] args) {
-		if (args == null|| args.length < 1) {
-			System.out.println(
-							"[options]" + System.lineSeparator()
-							+"cli						-启动客户端" + System.lineSeparator()
-							+"sver [host] [port]		-启动服务器" + System.lineSeparator()
-							+"guicli					-带GUI的客户端" + System.lineSeparator()
-							);
+		String msg = "[options]" + System.lineSeparator()
+						+ "cli						-启动客户端" + System.lineSeparator()
+						+ "sver [host] [port]		-启动服务器" + System.lineSeparator()
+						+ "guicli					-带GUI的客户端" + System.lineSeparator();
+		if (args == null || args.length < 1) {
+			System.out.println(msg);
 		} else if (args[0].equals("cli")) {
 			new AppClient().run();
-		} else if (args[0].equals("sver") && args.length > 3) {
+		} else if (args[0].equals("sver") && args.length == 3) {
 			AppServer.run(args[1], Integer.parseInt(args[2]));
 		} else if (args[0].equals("guicli")) {
 			APPWithGUI.main(args);
+		} else {
+			System.out.println(msg);
 		}
 	}
 
