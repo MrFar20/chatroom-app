@@ -1,5 +1,6 @@
-package pers.mrwangx.tools.chatroom;
+package pers.mrwangx.tools.chatroom.server;
 
+import pers.mrwangx.tools.chatroom.App;
 import pers.mrwangx.tools.chatroom.framework.server.session.Session;
 import pers.mrwangx.tools.chatroom.framework.server.session.SessionManager;
 import pers.mrwangx.tools.chatroom.framework.server.session.SimpleSessionManager;

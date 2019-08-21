@@ -1,4 +1,6 @@
-package pers.mrwangx.tools.chatroom;
+package pers.mrwangx.tools.chatroom.fx;
+
+import java.io.BufferedReader;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -25,7 +27,6 @@ public class APPWithGUI extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-
 		controller = new MainController();
 
 		FXMLLoader mainLoader = new FXMLLoader();
@@ -37,7 +38,15 @@ public class APPWithGUI extends Application {
 		Parent parent = mainLoader.getRoot();
 
 		primaryStage.setScene(new Scene(parent));
+
 		primaryStage.show();
+
+		parent.lookup("#input").requestFocus();
 	}
 
+	@Override
+	public void stop() throws Exception {
+		super.stop();
+		System.exit(0);
+	}
 }
